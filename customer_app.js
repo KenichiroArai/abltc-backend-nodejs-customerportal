@@ -71,14 +71,21 @@ app.get('/api/logout', async (req, res) => {
 // POST endpoint for adding a new customer
 app.post('/api/add_customer', async (req, res, next) => {
     const data = req.body;
+    const name = (data['name'])
     const age = parseInt(data['age']);
  
     try {
+        const regex = /^[A-Za-z]+$/;
+        if (!regex.test(name)) {
+            throw new ValidationError("Customer names are alphanumeric characters only");
+        }
+
         if (age < 21) {
             throw new ValidationError("Customer Under required age limit");
         }
  
         const customer = new Customers({
+            "name": name,
             "user_name": data['user_name'],
             "age": age,
             "password": data['password'],
