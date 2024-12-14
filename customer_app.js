@@ -30,7 +30,7 @@ app.use(session({
 const port = 3000;
 
 // MongoDB connection URI and database name
-const uri =  "mongodb://root:3pNiSP7x3YgsHcOVaDUQFMIr@172.21.71.25:27017";
+const uri =  "mongodb://root:iuMZO53QN8FvjcqJzgqJkO3D@172.21.56.4:27017";
 mongoose.connect(uri, {'dbName': 'customerDB'});
 
 // Middleware to parse JSON requests
